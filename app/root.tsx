@@ -9,6 +9,8 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import Navbar from "./components/Navbar";
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -40,9 +42,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <main className="max-w-6xl max-auto pt-16 px-6 my-8">
-          {children}
-        </main>
+        <Navbar />
+        <main>{children}</main>
+        <FloatingWhatsApp 
+        phoneNumber="27782971833" // Replace with your number (include country code, no + or spaces)
+        accountName="Customer Support"
+        // chatMessage="Hello! How can we help you today?"
+        avatar="/path-to-your-avatar.png" // Optional
+        notification={true}
+        allowEsc
+        allowClickAway
+      />
         <ScrollRestoration />
         <Scripts />
       </body>
