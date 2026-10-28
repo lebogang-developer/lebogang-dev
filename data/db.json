@@ -57,7 +57,7 @@
       "image": "/images/project-6.png",
       "url": "https://example.com",
       "date": "2024-09-28",
-      "category": "Mobile",
+      "category": "WordPress",
       "featured": false
     },
     {
@@ -67,7 +67,7 @@
       "image": "/images/project-7.png",
       "url": "https://example.com",
       "date": "2024-09-01",
-      "category": "Mobile",
+      "category": "WordPress",
       "featured": false
     }
   ]
