@@ -11,6 +11,10 @@ export async function loader({
   if (!res.ok) throw new Error("Failed to fetch data!");
 
   const data = await res.json();
+  // sort by date
+ data.sort((a: PostMeta, b:PostMeta) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
   return {
     posts: data,
@@ -21,11 +25,11 @@ const BlogPage = ({ loaderData }: Route.ComponentProps) => {
   const { posts } = loaderData;
 
   return (
-    <div className='max-w-3xl mx-auto mt-10 px-6 py-6 bg-gray-900 text-white'>
+    <div className="max-w-3xl mx-auto mt-10 px-6 py-6 bg-gray-900 text-white">
       <h2 className="text-3xl font-bold mb-8">Blog</h2>
 
-      {posts.map((post) =>(
-      <PostCard key={post.slug} post={post} />
+      {posts.map((post) => (
+        <PostCard key={post.slug} post={post} />
       ))}
     </div>
   );
